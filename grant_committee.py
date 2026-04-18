@@ -12,8 +12,8 @@ class GrantCommittee(gl.Contract):
     total_rejected: u256
     proposal_data: DynArray[str]
 
-    def __init__(self, owner_address: str):
-        self.owner = Address(owner_address)
+    def __init__(self, owner_address: Address):
+        self.owner = owner_address
         self.proposal_counter = u256(0)
         self.total_approved = u256(0)
         self.total_rejected = u256(0)
@@ -196,3 +196,4 @@ No extra text."""
                 self.proposal_data[i] = f"{key}{value}"
                 return
         self.proposal_data.append(f"{key}{value}")
+            
